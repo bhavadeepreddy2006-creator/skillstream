@@ -15,7 +15,6 @@ function Navbar() {
       {/* Search */}
       <div className="search-section">
         <FaSearch className="search-icon" />
-
         <input
           type="text"
           placeholder="Search skills, creators, posts..."
