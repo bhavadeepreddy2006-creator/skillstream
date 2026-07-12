@@ -6,7 +6,7 @@ import './App.css'
 import Navbar from './components/navbar/navbar'
 import Home from './pages/home/home'
 import Login from './pages/login/login'
-import Registration from './pages/registeration/registeration'
+import Registration from './pages/registration/registration'
 
 function App() {
   const [count, setCount] = useState(0)
