@@ -65,7 +65,6 @@ function Dashboard({name}) {
           <p>Knowledge Posts</p>
           <button>Read Posts</button>
         </div>
-        
         <div className="card">
           <FaChartLine className="card-icon" />
           <h2>156</h2>
