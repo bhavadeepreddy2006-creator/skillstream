@@ -84,9 +84,7 @@ function Sidebar() {
           <FaSignOutAlt />
           Logout
         </button>
-
       </div>
-
     </aside>
   );
 }
