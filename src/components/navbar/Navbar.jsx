@@ -36,11 +36,8 @@ function Navbar() {
           <div className="profile-info">
             <Profile name = "Bhavadeep Reddy" type= "learner"/>
           </div>
-
         </div>
-
       </div>
-
     </nav>
   );
 }
