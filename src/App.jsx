@@ -7,18 +7,25 @@ import Navbar from './components/navbar/navbar'
 import Home from './pages/home/home'
 import Login from './pages/login/login'
 import Registration from './pages/registration/registration'
+import { Route, Routes } from 'react-router-dom'
+import Layout from './components/layouts/layout'
+import Dashboard from './components/dashboard/dashboard'
+import Profile from './components/profile/profile'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='body'>
-      {/* <h1>SKILLSTREAM</h1> */}
-      {/* <Navbar/> */}
-      {/* <Home/> */}
-      {/* <Login/> */}
-      <Registration/>
-    </div>
+    <>
+    <Routes>
+      <Route path="/login" element = {<Login/>}/>
+      <Route path = "/registration" element = {<Registration/>}/>
+      <Route element = {<Layout/>}>
+        <Route path='/' element = {<Dashboard name="Bhavadeep Reddy"/>}/>
+        <Route path='/myprofile' element = {<Profile/>}/>
+      </Route>
+    </Routes>
+    </>
   )
 }
 
