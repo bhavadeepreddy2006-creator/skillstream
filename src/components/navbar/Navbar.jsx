@@ -1,10 +1,10 @@
 import "./Navbar.css";
 import { FaBell, FaSearch, FaUserCircle } from "react-icons/fa";
+import Profile from "../profile/profile";
 
 function Navbar() {
   return (
     <nav className="navbar">
-
       {/* Logo */}
       <div className="logo-section">
         <h2>
@@ -28,15 +28,10 @@ function Navbar() {
           <FaBell />
           <span className="notification-count">3</span>
         </div>
-
-        <div className="profile">
-
+        {/* <div className="profile">
           <FaUserCircle className="profile-icon" />
-
-          <div className="profile-info">
             <Profile name = "Bhavadeep Reddy" type= "learner"/>
-          </div>
-        </div>
+        </div> */}
       </div>
     </nav>
   );
