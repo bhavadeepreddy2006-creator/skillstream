@@ -1,0 +1,31 @@
+/* Entire Page */
+
+.body{
+    width:100%;
+    min-height:100vh;
+    background:#f4f7fc;
+}
+
+/* Navbar + Content */
+
+.main{
+    display:flex;
+    width:100%;
+    min-height:calc(100vh - 70px);
+}
+
+/* Sidebar */
+
+.main .sidebar{
+    width:260px;
+    flex-shrink:0;
+}
+
+/* Dashboard Area */
+
+.content{
+    flex:1;
+    padding:25px;
+    overflow-y:auto;
+    background:#f4f7fc;
+}
