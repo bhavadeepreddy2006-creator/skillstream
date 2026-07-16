@@ -18,11 +18,12 @@ function App() {
   return (
     <>
     <Routes>
+      <Route path="/" element={<Home />} />
       <Route path="/login" element = {<Login/>}/>
       <Route path = "/registration" element = {<Registration/>}/>
       <Route element = {<Layout/>}>
-        <Route path='/' element = {<Dashboard name="Bhavadeep Reddy"/>}/>
-        <Route path='/myprofile' element = {<Profile/>}/>
+        <Route path='/dashboard' element = {<Dashboard name="Bhavadeep Reddy"/>}/>
+        <Route path='/profile' element = {<Profile/>}/>
       </Route>
     </Routes>
     </>
