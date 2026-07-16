@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login({ onLogin }) {
 
@@ -7,9 +8,9 @@ function Login({ onLogin }) {
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
 
     const handleLogin = () => {
-
         const emailPattern =
             /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -29,7 +30,8 @@ function Login({ onLogin }) {
         }
 
         setMessage("");
-        onLogin();
+        // onLogin();
+        navigate('/dashboard');
     };
 
     return (
