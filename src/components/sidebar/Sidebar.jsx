@@ -1,80 +1,159 @@
-import { Link, useNavigate, NavLink } from "react-router-dom";
 import "./Sidebar.css";
-
+import { NavLink } from "react-router-dom";
 import {
   FaHome,
-  FaUserCircle,
+  FaUser,
   FaBookOpen,
   FaPenAlt,
   FaCompass,
   FaUsers,
   FaBookmark,
   FaBell,
+  FaChartLine,
   FaCog,
-  FaChartBar,
   FaSignOutAlt,
 } from "react-icons/fa";
 
-function Sidebar() {
-  // const navigate = useNavigate();
-  // function toprofile(){
-  //   navigate("/myprofile")
-  // }
+function Sidebar({ logout }) {
   return (
-    <aside className="sidebar">
-      <div className="sidebar-top">
-        <h3 className="sidebar-title">Navigation</h3>
-        <ul className="sidebar-menu">
-          <li className="active">
-            <FaHome className="icon" />
+    <aside className="leftbar">
+
+      <ul>
+
+        <li>
+          <NavLink
+            to="/dashboard"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaHome className="menu-icon" />
             <span>Dashboard</span>
-          </li>
-          <NavLink to="/myprofile">
-          <li>
-            <FaUserCircle className="icon" />
-            <span>My Profile</span>
-          </li>
           </NavLink>
-          <li>
-            <FaBookOpen className="icon" />
+        </li>
+
+        <li>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaUser className="menu-icon" />
+            <span>My Profile</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/feed"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaBookOpen className="menu-icon" />
             <span>Knowledge Feed</span>
-          </li>
-          <li>
-            <FaPenAlt className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/createpost"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaPenAlt className="menu-icon" />
             <span>Create Post</span>
-          </li>
-          <li>
-            <FaCompass className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/explore"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaCompass className="menu-icon" />
             <span>Explore</span>
-          </li>
-          <li>
-            <FaUsers className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/community"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaUsers className="menu-icon" />
             <span>Community</span>
-          </li>
-          <li>
-            <FaBookmark className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/savedposts"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaBookmark className="menu-icon" />
             <span>Saved Posts</span>
-          </li>
-          <li>
-            <FaBell className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/notifications"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaBell className="menu-icon" />
             <span>Notifications</span>
-          </li>
-          <li>
-            <FaChartBar className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/analytics"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaChartLine className="menu-icon" />
             <span>Analytics</span>
-          </li>
-          <li>
-            <FaCog className="icon" />
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/settings"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaCog className="menu-icon" />
             <span>Settings</span>
-          </li>
-        </ul>
-      </div>
-      <div className="sidebar-bottom">
-        <button className="logout-btn">
+          </NavLink>
+        </li>
+
+      </ul>
+
+      <div className="sidebar-footer">
+
+        <button
+          className="logout-btn"
+          onClick={logout}
+        >
           <FaSignOutAlt />
-          Logout
+          <span>Logout</span>
         </button>
+
       </div>
+
     </aside>
   );
 }
