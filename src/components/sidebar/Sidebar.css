@@ -1,91 +1,185 @@
-/* ===========================
+/* /* ===========================
         SIDEBAR
 =========================== */
 
-.sidebar{
+.leftbar{
+
     width:260px;
+
     min-height:calc(100vh - 70px);
+
     background:#ffffff;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    padding:20px 0;
+
     box-shadow:2px 0 12px rgba(0,0,0,0.08);
-}
 
-/* ===========================
-      TITLE
-=========================== */
-
-.sidebar-title{
-    padding:0 25px 20px;
-    color:#64748b;
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-/* ===========================
-      MENU
-=========================== */
-
-.sidebar-menu{
-    list-style:none;
-}
-
-.sidebar-menu li{
     display:flex;
-    align-items:center;
-    gap:15px;
-    padding:15px 25px;
-    cursor:pointer;
-    color:#334155;
-    font-size:15px;
-    transition:0.3s;
-    border-left:4px solid transparent;
-}
 
-.sidebar-menu li:hover{
-    background:#eff6ff;
-    color:#2563eb;
-    border-left:4px solid #2563eb;
-}
+    flex-direction:column;
 
-.sidebar-menu li.active{
-    background:#dbeafe;
-    color:#2563eb;
-    border-left:4px solid #2563eb;
-    font-weight:600;
-}
+    justify-content:space-between;
 
-.icon{
-    font-size:18px;
 }
 
 /* ===========================
-      LOGOUT
+        MENU
 =========================== */
 
-.sidebar-bottom{
-    padding:20px;
+.leftbar ul{
+
+    list-style:none;
+
+    padding:20px 0;
+
 }
+
+/* ===========================
+        LIST ITEM
+=========================== */
+
+.leftbar li{
+
+    margin:6px 0;
+
+}
+
+/* ===========================
+      NAVIGATION LINK
+=========================== */
+
+.nav-link{
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:14px 28px;
+
+    text-decoration:none;
+
+    color:#334155;
+
+    font-size:16px;
+
+    font-weight:500;
+
+    border-left:4px solid transparent;
+
+    transition:all .3s ease;
+
+}
+
+/* ===========================
+        HOVER
+=========================== */
+
+.nav-link:hover{
+
+    background:#eff6ff;
+
+    color:#2563eb;
+
+    border-left:4px solid #93c5fd;
+
+    padding-left:34px;
+
+}
+
+/* ===========================
+        ACTIVE
+=========================== */
+
+.nav-link.active{
+
+    background:#dbeafe;
+
+    color:#2563eb;
+
+    border-left:4px solid #2563eb;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+      LOGOUT BUTTON
+=========================== */
 
 .logout-btn{
-    width:100%;
+
+    width:85%;
+
     height:45px;
+
+    margin:25px auto;
+
     border:none;
+
     border-radius:10px;
+
     background:#ef4444;
-    color:white;
+
+    color:#ffffff;
+
     font-size:15px;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
+
+    font-weight:500;
+
     cursor:pointer;
+
     transition:0.3s;
+
 }
 
 .logout-btn:hover{
+
     background:#dc2626;
+
+    transform:translateY(-2px);
+
+}
+
+/* ===========================
+      RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+    .leftbar{
+
+        width:220px;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .leftbar{
+
+        width:80px;
+
+    }
+
+    .nav-link{
+
+        justify-content:center;
+
+        padding:18px 0;
+
+        font-size:0;
+
+    }
+
+    .logout-btn{
+
+        width:60px;
+
+        font-size:12px;
+
+        margin:20px auto;
+
+    }
+
 }
