@@ -1,0 +1,154 @@
+.admin-page{
+    width:100%;
+    padding:25px;
+}
+
+.admin-page h1{
+    color:#1e293b;
+    margin-bottom:20px;
+}
+
+.admin-tabs{
+    display:flex;
+    gap:8px;
+    margin-bottom:20px;
+}
+
+.admin-tabs button{
+    background:#f1f5f9;
+    color:#334155;
+    border:none;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.admin-tabs button.active{
+    background:#2563eb;
+    color:#ffffff;
+}
+
+.admin-error{
+    color:#dc2626;
+    margin-bottom:15px;
+}
+
+.admin-empty{
+    color:#64748b;
+    padding:10px 0;
+}
+
+.admin-stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:16px;
+}
+
+.admin-stat-card{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    padding:18px;
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.admin-stat-icon{
+    font-size:22px;
+    color:#2563eb;
+}
+
+.admin-stat-card div{
+    display:flex;
+    flex-direction:column;
+}
+
+.admin-stat-value{
+    font-size:20px;
+    font-weight:700;
+    color:#1e293b;
+}
+
+.admin-stat-label{
+    color:#64748b;
+    font-size:12px;
+}
+
+.admin-table-card{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    padding:10px 20px;
+}
+
+.admin-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.admin-table th{
+    text-align:left;
+    color:#64748b;
+    font-size:13px;
+    padding:12px 10px;
+    border-bottom:1px solid #f1f5f9;
+}
+
+.admin-table td{
+    padding:12px 10px;
+    border-bottom:1px solid #f8fafc;
+    font-size:14px;
+    color:#334155;
+}
+
+.admin-table a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.admin-table select{
+    padding:6px 10px;
+    border:1px solid #e2e8f0;
+    border-radius:6px;
+    font-size:13px;
+}
+
+.admin-delete-btn{
+    background:#fee2e2;
+    color:#dc2626;
+    border:none;
+    padding:6px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.admin-resolve-btn{
+    background:#dcfce7;
+    color:#16a34a;
+    border:none;
+    padding:6px 14px;
+    border-radius:6px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.status-badge{
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-published{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.status-draft{
+    background:#fef3c7;
+    color:#b45309;
+}

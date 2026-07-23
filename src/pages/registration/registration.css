@@ -26,6 +26,13 @@
     font-weight:700;
 }
 
+.register-subtitle{
+    text-align:center;
+    color:#64748b;
+    font-size:14px;
+    margin-top:-12px;
+}
+
 .register-input{
     width:100%;
     height:50px;

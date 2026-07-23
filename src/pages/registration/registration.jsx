@@ -1,26 +1,27 @@
 import { useState } from "react";
-import "./Registration.css";
+import { useNavigate } from "react-router-dom";
+import "./registration.css";
+import { registerUser } from "../../api/authApi";
 
-function Registration() {
+function Registration({ onAuthSuccess }) {
 
-    const [studentName, setStudentName] = useState("");
+    const navigate = useNavigate();
+
+    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
-    const [phone, setPhone] = useState("");
-    const [branch, setBranch] = useState("");
+    const [role, setRole] = useState("learner");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [submitting, setSubmitting] = useState(false);
 
-    const handleRegister = () => {
-
+    const handleRegister = async () => {
         const namePattern = /^[A-Za-z ]{3,30}$/;
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        const phonePattern = /^[6-9]\d{9}$/;
-        const branchPattern = /^[A-Za-z ]{2,20}$/;
         const passwordPattern =
             /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-        if (!namePattern.test(studentName)) {
-            setMessage("Enter a valid student name.");
+        if (!namePattern.test(name)) {
+            setMessage("Enter a valid name.");
             return;
         }
 
@@ -29,22 +30,28 @@ function Registration() {
             return;
         }
 
-        if (!phonePattern.test(phone)) {
-            setMessage("Enter a valid 10-digit phone number.");
-            return;
-        }
-
-        if (!branchPattern.test(branch)) {
-            setMessage("Enter a valid branch name.");
-            return;
-        }
-
         if (!passwordPattern.test(password)) {
             setMessage("Password must contain 8 characters, uppercase, lowercase, number and special character.");
             return;
         }
 
-        setMessage("Registration Successful");
+        setSubmitting(true);
+        setMessage("");
+
+        try {
+            const data = await registerUser({ name, email, password, role });
+
+            localStorage.setItem("token", data.token);
+            onAuthSuccess(data.user);
+
+            setMessage("Account created successfully!");
+            navigate("/dashboard");
+        } catch (error) {
+            const serverMessage = error.response?.data?.message;
+            setMessage(serverMessage || "Something went wrong. Please try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -54,40 +61,36 @@ function Registration() {
             <div className="register-card">
 
                 <h1 className="register-title">
-                    Student Registration
+                    Join SkillShare Hub
                 </h1>
+                <p className="register-subtitle">
+                    Create an account to start sharing knowledge or learning from the community.
+                </p>
 
                 <input
                     className="register-input"
                     type="text"
-                    placeholder="Enter Student Name"
-                    value={studentName}
-                    onChange={(e)=>setStudentName(e.target.value)}
+                    placeholder="Full Name"
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
                 />
 
                 <input
                     className="register-input"
                     type="email"
-                    placeholder="Enter Email"
+                    placeholder="Email Address"
                     value={email}
                     onChange={(e)=>setEmail(e.target.value)}
                 />
 
-                <input
+                <select
                     className="register-input"
-                    type="text"
-                    placeholder="Enter Phone Number"
-                    value={phone}
-                    onChange={(e)=>setPhone(e.target.value)}
-                />
-
-                <input
-                    className="register-input"
-                    type="text"
-                    placeholder="Enter Branch"
-                    value={branch}
-                    onChange={(e)=>setBranch(e.target.value)}
-                />
+                    value={role}
+                    onChange={(e)=>setRole(e.target.value)}
+                >
+                    <option value="learner">I'm here to learn</option>
+                    <option value="creator">I'm here to share knowledge (Creator)</option>
+                </select>
 
                 <input
                     className="register-input"
@@ -100,8 +103,9 @@ function Registration() {
                 <button
                     className="register-btn"
                     onClick={handleRegister}
+                    disabled={submitting}
                 >
-                    Register
+                    {submitting ? "Creating Account..." : "Register"}
                 </button>
 
                 <p className="register-message">

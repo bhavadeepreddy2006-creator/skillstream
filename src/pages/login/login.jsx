@@ -1,37 +1,44 @@
 import { useState } from "react";
-import "./Login.css";
+import "./login.css";
 import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../api/authApi";
 
-function Login({ onLogin }) {
+function Login({ onAuthSuccess }) {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const [message, setMessage] = useState("");
+    const [submitting, setSubmitting] = useState(false);
     const navigate = useNavigate();
 
-    const handleLogin = () => {
-        const emailPattern =
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-        const passwordPattern =
-            /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const handleLogin = async () => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailPattern.test(email)) {
             setMessage("Invalid Email Address");
             return;
         }
 
-        if (!passwordPattern.test(password)) {
-            setMessage(
-                "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special character."
-            );
+        if (!password) {
+            setMessage("Password is required");
             return;
         }
 
+        setSubmitting(true);
         setMessage("");
-        // onLogin();
-        navigate('/dashboard');
+
+        try {
+            const data = await loginUser({ email, password });
+            localStorage.setItem("token", data.token);
+            onAuthSuccess(data.user);
+            navigate("/dashboard");
+        } catch (error) {
+            const serverMessage = error.response?.data?.message;
+            setMessage(serverMessage || "Something went wrong. Please try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -40,7 +47,7 @@ function Login({ onLogin }) {
             <div className="login-card">
 
                 <h1 className="login-title">
-                    Placement Management System
+                    SkillShare Hub
                 </h1>
 
                 <input
@@ -69,8 +76,9 @@ function Login({ onLogin }) {
                 <button
                     className="login-btn"
                     onClick={handleLogin}
+                    disabled={submitting}
                 >
-                    Login
+                    {submitting ? "Logging in..." : "Login"}
                 </button>
 
                 {

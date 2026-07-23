@@ -12,9 +12,11 @@ import {
   FaChartLine,
   FaCog,
   FaSignOutAlt,
+  FaFileAlt,
+  FaShieldAlt,
 } from "react-icons/fa";
 
-function Sidebar({ logout }) {
+function Sidebar({ logout, currentUser }) {
   return (
     <aside className="leftbar">
 
@@ -46,6 +48,18 @@ function Sidebar({ logout }) {
 
         <li>
           <NavLink
+            to="/userdata"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaUsers className="menu-icon" />
+            <span>Community Members</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
             to="/feed"
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
@@ -65,6 +79,18 @@ function Sidebar({ logout }) {
           >
             <FaPenAlt className="menu-icon" />
             <span>Create Post</span>
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to="/myposts"
+            className={({ isActive }) =>
+              isActive ? "nav-link active" : "nav-link"
+            }
+          >
+            <FaFileAlt className="menu-icon" />
+            <span>My Posts</span>
           </NavLink>
         </li>
 
@@ -139,6 +165,20 @@ function Sidebar({ logout }) {
             <span>Settings</span>
           </NavLink>
         </li>
+
+        {currentUser?.role === "admin" && (
+          <li>
+            <NavLink
+              to="/admin"
+              className={({ isActive }) =>
+                isActive ? "nav-link active" : "nav-link"
+              }
+            >
+              <FaShieldAlt className="menu-icon" />
+              <span>Admin Dashboard</span>
+            </NavLink>
+          </li>
+        )}
 
       </ul>
 

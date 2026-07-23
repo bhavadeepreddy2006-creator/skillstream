@@ -48,7 +48,7 @@ function Home() {
                         </button>
                     </Link>
 
-                    <Link to="/register">
+                    <Link to="/registration">
                         <button className="register-btn">
                             Join Now
                         </button>

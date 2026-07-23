@@ -1,0 +1,100 @@
+.userdata-page{
+    padding:25px;
+}
+
+.userdata-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.userdata-title{
+    font-size:28px;
+    color:#1e3a8a;
+}
+
+.search-box{
+    width:260px;
+    padding:11px 15px;
+    border:1px solid #d1d5db;
+    border-radius:8px;
+    outline:none;
+    font-size:15px;
+}
+
+.search-box:focus{
+    border-color:#2563eb;
+}
+
+.user-table-container{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.user-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.user-table th{
+    background:#2563eb;
+    color:#fff;
+    padding:14px;
+    text-align:center;
+}
+
+.user-table td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #e5e7eb;
+}
+
+.user-table tr:nth-child(even){
+    background:#f9fafb;
+}
+
+.action-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+}
+
+.view-btn,
+.edit-btn,
+.delete-btn{
+    border:none;
+    padding:8px 14px;
+    border-radius:6px;
+    color:#fff;
+    cursor:pointer;
+    text-decoration:none;
+    font-size:14px;
+}
+
+.view-btn{
+    background:#2563eb;
+}
+
+.edit-btn{
+    background:#10b981;
+}
+
+.delete-btn{
+    background:#ef4444;
+}
+
+.loading{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:60vh;
+    font-size:26px;
+    font-weight:600;
+    color:#2563eb;
+}

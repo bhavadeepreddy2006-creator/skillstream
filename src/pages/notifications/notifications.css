@@ -1,0 +1,104 @@
+.notifications-page{
+    width:100%;
+    padding:25px;
+}
+
+.notifications-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.notifications-header h1{
+    color:#1e293b;
+}
+
+.mark-all-btn{
+    background:#f1f5f9;
+    color:#334155;
+    border:none;
+    padding:8px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.mark-all-btn:hover{
+    background:#e2e8f0;
+}
+
+.notifications-error{
+    color:#dc2626;
+    margin-bottom:15px;
+}
+
+.notifications-empty{
+    color:#64748b;
+}
+
+.notifications-list{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.notification-item{
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    padding:16px 20px;
+    border-bottom:1px solid #f1f5f9;
+    text-decoration:none;
+    color:inherit;
+    position:relative;
+}
+
+.notification-item:last-child{
+    border-bottom:none;
+}
+
+.notification-item.unread{
+    background:#eff6ff;
+}
+
+.notification-item:hover{
+    background:#f8fafc;
+}
+
+.notification-item.unread:hover{
+    background:#dbeafe;
+}
+
+.notif-icon{
+    font-size:18px;
+    margin-top:2px;
+}
+
+.notif-icon-follow{ color:#2563eb; }
+.notif-icon-like{ color:#dc2626; }
+.notif-icon-comment{ color:#16a34a; }
+
+.notification-body{
+    flex:1;
+}
+
+.notification-body p{
+    color:#1e293b;
+    font-size:14px;
+    margin-bottom:4px;
+}
+
+.notification-body span{
+    color:#94a3b8;
+    font-size:12px;
+}
+
+.unread-dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#2563eb;
+    margin-top:6px;
+}

@@ -1,0 +1,84 @@
+.community-page{
+    width:100%;
+    padding:25px;
+}
+
+.community-page h1{
+    color:#1e293b;
+    margin-bottom:6px;
+}
+
+.community-subtitle{
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.community-error{
+    color:#dc2626;
+    margin-bottom:15px;
+}
+
+.community-empty{
+    color:#64748b;
+}
+
+.community-empty a{
+    color:#2563eb;
+    font-weight:600;
+}
+
+.contributors-list{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    overflow:hidden;
+}
+
+.contributor-row{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    padding:16px 22px;
+    border-bottom:1px solid #f1f5f9;
+}
+
+.contributor-row:last-child{
+    border-bottom:none;
+}
+
+.contributor-rank{
+    width:30px;
+    text-align:center;
+    font-weight:700;
+    color:#94a3b8;
+}
+
+.rank-icon.rank-1{ color:#eab308; }
+.rank-icon.rank-2{ color:#94a3b8; }
+.rank-icon.rank-3{ color:#b45309; }
+
+.contributor-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.contributor-info a{
+    color:#1e293b;
+    font-weight:600;
+    text-decoration:none;
+    font-size:15px;
+}
+
+.contributor-role{
+    color:#64748b;
+    font-size:12px;
+    text-transform:capitalize;
+}
+
+.contributor-count{
+    color:#2563eb;
+    font-weight:600;
+    font-size:14px;
+}

@@ -1,0 +1,282 @@
+.profile-page{
+    width:100%;
+    padding:25px;
+}
+
+.profile-card{
+    background:#ffffff;
+    border-radius:15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+}
+
+.cover-photo{
+    position:relative;
+    height:180px;
+    background:#e2e8f0;
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    justify-content:flex-end;
+    align-items:flex-start;
+    padding:15px;
+}
+
+.profile-image{
+    position:relative;
+    font-size:110px;
+    color:#2563eb;
+    margin:-55px 0 0 35px;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#ffffff;
+    border:4px solid #ffffff;
+    box-shadow:0 3px 10px rgba(0,0,0,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.photo-upload-btn{
+    position:absolute;
+    bottom:4px;
+    right:4px;
+    background:#2563eb;
+    color:#ffffff;
+    font-size:11px;
+    padding:5px 8px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+.photo-upload-btn:hover{
+    background:#1d4ed8;
+}
+
+.cover-upload-btn{
+    position:static;
+}
+
+.profile-details{
+    flex:1;
+    padding:20px 35px 35px 35px;
+}
+
+.profile-details h2{
+    color:#1e293b;
+    margin-bottom:8px;
+}
+
+.profile-role{
+    color:#64748b;
+    margin-bottom:25px;
+    font-size:17px;
+}
+
+.profile-info{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-bottom:25px;
+}
+
+.info-box{
+    background:#f8fafc;
+    padding:18px;
+    border-radius:10px;
+    border:1px solid #e2e8f0;
+}
+
+.label{
+    display:block;
+    color:#64748b;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.value{
+    font-size:16px;
+    font-weight:600;
+    color:#1e293b;
+}
+
+.profile-bio{
+    color:#334155;
+    line-height:1.6;
+    margin-bottom:25px;
+}
+
+.tag-section{
+    margin-bottom:22px;
+}
+
+.tag-section h4{
+    color:#1e293b;
+    margin-bottom:10px;
+}
+
+.tag-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.tag{
+    background:#eff6ff;
+    color:#2563eb;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+}
+
+.project-item{
+    background:#f8fafc;
+    border:1px solid #e2e8f0;
+    border-radius:10px;
+    padding:14px 16px;
+    margin-bottom:10px;
+}
+
+.project-item a{
+    color:#2563eb;
+    font-size:13px;
+    word-break:break-all;
+}
+
+.links-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+}
+
+.links-list a{
+    color:#2563eb;
+    font-weight:600;
+    font-size:14px;
+}
+
+.edit-btn{
+    background:#2563eb;
+    color:#ffffff;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+    transition:0.3s;
+}
+
+.edit-btn:hover{
+    background:#1d4ed8;
+}
+
+.edit-btn:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
+.profile-note{
+    color:#94a3b8;
+    font-size:13px;
+    text-align:center;
+    margin-top:10px;
+}
+
+.profile-message{
+    color:#dc2626;
+    font-size:14px;
+    margin-top:12px;
+}
+
+/* Edit form */
+
+.profile-edit-form{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+}
+
+.profile-edit-form label{
+    color:#64748b;
+    font-size:13px;
+    font-weight:600;
+    margin-top:10px;
+}
+
+.profile-edit-form input,
+.profile-edit-form textarea{
+    padding:10px 12px;
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+    font-size:14px;
+    font-family:inherit;
+}
+
+.profile-edit-form textarea{
+    resize:vertical;
+    min-height:70px;
+}
+
+.project-edit-row{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr auto;
+    gap:8px;
+    margin-bottom:8px;
+}
+
+.project-edit-row input{
+    padding:8px 10px;
+}
+
+.remove-project-btn{
+    background:#fee2e2;
+    color:#dc2626;
+    border:none;
+    border-radius:6px;
+    padding:0 12px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.add-project-btn{
+    align-self:flex-start;
+    background:none;
+    border:1px dashed #94a3b8;
+    color:#475569;
+    border-radius:8px;
+    padding:8px 14px;
+    cursor:pointer;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.profile-edit-actions{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.cancel-btn{
+    background:#f1f5f9;
+    color:#334155;
+    border:none;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+.cancel-btn:hover{
+    background:#e2e8f0;
+}

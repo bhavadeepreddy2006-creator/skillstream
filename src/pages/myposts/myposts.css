@@ -1,0 +1,101 @@
+.myposts-page{
+    width:100%;
+    padding:25px;
+}
+
+.myposts-page h1{
+    color:#1e293b;
+    margin-bottom:20px;
+}
+
+.myposts-error{
+    color:#dc2626;
+    margin-bottom:15px;
+}
+
+.myposts-empty{
+    color:#64748b;
+}
+
+.myposts-empty a{
+    color:#2563eb;
+    font-weight:600;
+}
+
+.myposts-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#ffffff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+.myposts-table th{
+    text-align:left;
+    background:#f8fafc;
+    color:#64748b;
+    font-size:13px;
+    padding:14px 16px;
+}
+
+.myposts-table td{
+    padding:14px 16px;
+    border-top:1px solid #f1f5f9;
+    font-size:14px;
+    color:#334155;
+}
+
+.myposts-table a{
+    color:#2563eb;
+    font-weight:600;
+    text-decoration:none;
+}
+
+.status-badge{
+    padding:4px 12px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.status-published{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.status-draft{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.myposts-actions{
+    display:flex;
+    gap:8px;
+}
+
+.myposts-edit-btn,
+.myposts-toggle-btn,
+.myposts-delete-btn{
+    border:none;
+    padding:6px 12px;
+    border-radius:6px;
+    font-size:12px;
+    cursor:pointer;
+    text-decoration:none;
+}
+
+.myposts-edit-btn{
+    background:#eff6ff;
+    color:#2563eb;
+}
+
+.myposts-toggle-btn{
+    background:#f1f5f9;
+    color:#334155;
+}
+
+.myposts-delete-btn{
+    background:#fee2e2;
+    color:#dc2626;
+}

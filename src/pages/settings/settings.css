@@ -1,0 +1,101 @@
+.settings-page{
+    width:100%;
+    padding:25px;
+    max-width:600px;
+}
+
+.settings-page h1{
+    color:#1e293b;
+    margin-bottom:20px;
+}
+
+.settings-card{
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    padding:24px;
+    margin-bottom:20px;
+}
+
+.settings-card h3{
+    color:#1e293b;
+    margin-bottom:16px;
+}
+
+.settings-card form{
+    display:flex;
+    flex-direction:column;
+}
+
+.settings-card label{
+    color:#64748b;
+    font-size:13px;
+    font-weight:600;
+    margin-top:12px;
+    margin-bottom:6px;
+}
+
+.settings-card input{
+    padding:10px 12px;
+    border:1px solid #e2e8f0;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.settings-message{
+    color:#dc2626;
+    font-size:13px;
+    margin-top:10px;
+}
+
+.settings-btn{
+    align-self:flex-start;
+    background:#2563eb;
+    color:#ffffff;
+    border:none;
+    padding:10px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    margin-top:16px;
+}
+
+.settings-btn:hover{
+    background:#1d4ed8;
+}
+
+.settings-btn:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
+.danger-zone{
+    border:1px solid #fecaca;
+}
+
+.danger-zone p{
+    color:#64748b;
+    font-size:13px;
+    line-height:1.6;
+    margin-bottom:14px;
+}
+
+.delete-account-btn{
+    background:#dc2626;
+    color:#ffffff;
+    border:none;
+    padding:10px 22px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+    margin-top:14px;
+}
+
+.delete-account-btn:hover{
+    background:#b91c1c;
+}
+
+.delete-account-btn:disabled{
+    opacity:0.5;
+    cursor:not-allowed;
+}
