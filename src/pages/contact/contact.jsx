@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./contact.css";
+import { submitContactMessage } from "../../api/contactApi";
 
 function Contact() {
 
@@ -7,8 +8,9 @@ function Contact() {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState("");
+    const [submitting, setSubmitting] = useState(false);
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (name.trim().length < 3) {
@@ -26,10 +28,20 @@ function Contact() {
             return;
         }
 
-        setStatus("Thanks for reaching out! We'll get back to you soon.");
-        setName("");
-        setEmail("");
-        setMessage("");
+        setSubmitting(true);
+        setStatus("");
+
+        try {
+            const data = await submitContactMessage(name.trim(), email.trim(), message.trim());
+            setStatus(data.message || "Thanks for reaching out! We'll get back to you soon.");
+            setName("");
+            setEmail("");
+            setMessage("");
+        } catch (error) {
+            setStatus(error.response?.data?.message || "Something went wrong. Please try again.");
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     return (
@@ -62,8 +74,8 @@ function Contact() {
                     onChange={(e) => setMessage(e.target.value)}
                 />
 
-                <button className="contact-btn" onClick={handleSubmit}>
-                    Send Message
+                <button className="contact-btn" onClick={handleSubmit} disabled={submitting}>
+                    {submitting ? "Sending..." : "Send Message"}
                 </button>
 
                 <p className="contact-message">{status}</p>

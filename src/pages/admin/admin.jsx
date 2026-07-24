@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import { fetchUsers, deleteUserApi } from "../../api/userApi";
 import { fetchAdminOverview, updateUserRoleApi, fetchAllPostsAdmin } from "../../api/adminApi";
 import { fetchReports, resolveReportApi } from "../../api/reportApi";
+import { fetchContactMessages } from "../../api/contactApi";
 import { deletePost } from "../../api/postApi";
 import { FaUsers, FaFileAlt, FaComment, FaHeart, FaUserFriends, FaFlag } from "react-icons/fa";
 
 function Admin({ currentUser }) {
     const [tab, setTab] = useState("overview");
 
-    if (currentUser && currentUser.role !== "admin") {
+    if (!currentUser || currentUser.role !== "admin") {
         return (
             <div className="admin-page">
                 <h2>You don't have access to this page.</h2>
@@ -27,12 +28,14 @@ function Admin({ currentUser }) {
                 <button className={tab === "users" ? "active" : ""} onClick={() => setTab("users")}>Users</button>
                 <button className={tab === "posts" ? "active" : ""} onClick={() => setTab("posts")}>Posts</button>
                 <button className={tab === "reports" ? "active" : ""} onClick={() => setTab("reports")}>Reports</button>
+                <button className={tab === "messages" ? "active" : ""} onClick={() => setTab("messages")}>Messages</button>
             </div>
 
             {tab === "overview" && <OverviewTab />}
             {tab === "users" && <UsersTab currentUser={currentUser} />}
             {tab === "posts" && <PostsTab />}
             {tab === "reports" && <ReportsTab />}
+            {tab === "messages" && <MessagesTab />}
         </div>
     );
 }
@@ -253,6 +256,51 @@ function ReportsTab() {
                                         Mark Resolved
                                     </button>
                                 </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            )}
+        </div>
+    );
+}
+
+function MessagesTab() {
+    const [messages, setMessages] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState("");
+
+    useEffect(() => {
+        fetchContactMessages()
+            .then((data) => setMessages(data))
+            .catch(() => setError("Could not load messages."))
+            .finally(() => setLoading(false));
+    }, []);
+
+    if (loading) return <p>Loading messages...</p>;
+
+    return (
+        <div className="admin-table-card">
+            {error && <p className="admin-error">{error}</p>}
+            {messages.length === 0 ? (
+                <p className="admin-empty">No messages yet.</p>
+            ) : (
+                <table className="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                            <th>Received</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {messages.map((msg) => (
+                            <tr key={msg._id}>
+                                <td>{msg.name}</td>
+                                <td>{msg.email}</td>
+                                <td>{msg.message}</td>
+                                <td>{new Date(msg.createdAt).toLocaleDateString()}</td>
                             </tr>
                         ))}
                     </tbody>

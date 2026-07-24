@@ -33,12 +33,14 @@ function Usertable({users, deleteuser, currentUser}){
                                         >
                                             View
                                         </Link>
-                                        <Link
-                                            className="edit-btn"
-                                            to={`/userdata/edit/${user._id}`}
-                                        >
-                                            Edit
-                                        </Link>
+                                        {currentUser && (currentUser.id === user._id || currentUser.role === "admin") && (
+                                            <Link
+                                                className="edit-btn"
+                                                to={`/userdata/edit/${user._id}`}
+                                            >
+                                                Edit
+                                            </Link>
+                                        )}
                                         {currentUser && (currentUser.id === user._id || currentUser.role === "admin") && (
                                             <button
                                                 className="delete-btn"
